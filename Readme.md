@@ -27,11 +27,16 @@ Repositori ini berisi source code dan konfigurasi Docker untuk mengembangkan sis
 git clone https://github.com/<username>/<repo-name>.git
 cd <repo-name>
 
+```
 ### 2. Configurasi Environtment
+```bash
 cp .env.example .env
-
+```
 ### 3. Jalankan di Docker
+```bash
 docker-compose up -d
-
+```
 ### 4. Akses
+```bash
 http://localhost:8069
+```
