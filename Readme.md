@@ -24,8 +24,8 @@ Repositori ini berisi source code dan konfigurasi Docker untuk mengembangkan sis
 
 
 ```bash
-git clone https://github.com/<username>/<repo-name>.git
-cd <repo-name>
+git clone https://github.com/SulthanAuliaRahman/Odoo-PSI.git
+cd Odoo-PSI
 
 ```
 ### 2. Configurasi Environtment
