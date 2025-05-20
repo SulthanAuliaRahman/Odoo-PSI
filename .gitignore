@@ -1,0 +1,20 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Docker volumes & runtime data
+data/
+*.pid
+*.log
+
+# Odoo
+*.zip
+*.db
+*.tar.gz
+
+# System/Editor
+.DS_Store
+.env
+.env.local
+.idea/
+.vscode/
