@@ -1,0 +1,9 @@
+<templates id="template" xml:space="preserve">
+    <t t-name="QRScannerButton" owl="1">
+        <button class="control-button" t-on-click="scanQRCode">
+            <i class="fa fa-qrcode"></i>
+            <span>Scan QR</span>
+        </button>
+        <div id="qr-reader" style="width: 300px;"></div>
+    </t>
+</templates>

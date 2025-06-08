@@ -1,0 +1,11 @@
+.control-button {
+    display: inline-block;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    background: #f8f8f8;
+    cursor: pointer;
+}
+#qr-reader {
+    margin: 10px;
+}

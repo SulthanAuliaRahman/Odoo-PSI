@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="view_pos_global_discount_tree" model="ir.ui.view">
+            <field name="name">view.pos.global.discount.tree</field>
+            <field name="model">pos.global.discount</field>
+            <field name="arch" type="xml">
+                <tree string="POS Global Discount">
+                    <field name="name"/>
+                    <field name="apply_on"/>
+                    <field name="discount_product_id" invisible="apply_on=='lines'"/>
+                    <field name="discount_pc"/>
+                    <field name="is_discount_fixed"/>
+                    <field name="pos_config_domain" column_invisible="1"/>
+                    <field name="pos_config_ids" widget="many2many_tags" domain="pos_config_domain"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_pos_global_discount_form" model="ir.ui.view">
+            <field name="name">view.pos.global.discount.form</field>
+            <field name="model">pos.global.discount</field>
+            <field name="arch" type="xml">
+                <form string="POS Global Discount">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" class="oe_inline"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="apply_on"/>
+                                <field name="discount_product_id"
+                                       required="apply_on=='order'" invisible="apply_on=='lines'"/>
+                                <field name="discount_pc"/>
+                                <field name="is_discount_fixed"/>
+                                <field name="discount_limit"/>
+                                <field name="discount_limit_pc" invisible="not discount_limit"/>
+                            </group>
+                            <group>
+                                <field name="pos_config_domain" invisible="1"/>
+                                <field name="pos_config_ids" widget="many2many_tags" domain="pos_config_domain"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_pos_global_discount_view" model="ir.actions.act_window">
+            <field name="name">Pos Global Discount</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pos.global.discount</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create new record here !!
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

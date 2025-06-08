@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+
+        <record id="view_inherit_pos_config_form" model="ir.ui.view">
+            <field name="name">view.inherit.pos.config.form</field>
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//sheet" position="inside">
+                    <group name="discounts" string="Discounts" >
+                        <group name="discounts_left">
+                            <field name="module_pos_discount" readonly="has_active_session"/>
+                            <field name="discount_product_id" invisible="not discount_product_id or apply_on=='lines'"
+                                   required="module_pos_discount and apply_on=='order'"/>
+                            <field name="discount_pc" invisible="not module_pos_discount"/>
+                            <field name="is_discount_fixed" invisible="not module_pos_discount"/>
+                            <field name="discount_limit" invisible="not module_pos_discount"/>
+                            <field name="discount_limit_pc" invisible="not module_pos_discount"/>
+                            <field name="allow_global_discount_apply_on" invisible="1"/>
+                            <field name="apply_on" invisible="not module_pos_discount"
+                                   readonly="not allow_global_discount_apply_on"/>
+                        </group>
+                        <group name="discounts_right">
+                            <field name="manual_discount"/>
+                            <div class="content-group" colspan="2">
+                                <div class="text-muted">
+                                    Allow cashiers to set a discount per line
+                                </div>
+                            </div>
+                            <field name="discount_line_limit"/>
+                            <field name="discount_line_limit_pc" invisible="not discount_line_limit"/>
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>
